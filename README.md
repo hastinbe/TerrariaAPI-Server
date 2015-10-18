@@ -1,9 +1,9 @@
 # Terraria Server API
 
-This is the Terraria Server API, the API that [TShock for Terraria](http://github.com/tshock/tshock) runs on.
+A free reimplementation of Re-Logic's Terraria game server.
 
-## Features
+* Repository: [https://github.com/hastinbe/TerrariaAPI-Server](https://github.com/hastinbe/TerrariaAPI-Server) [![Travis CI build status](https://travis-ci.org/hastinbe/TerrariaAPI-Server.svg?branch=bleed)](https://travis-ci.org/hastinbe/TerrariaAPI-Server)
 
-* Hooks for the most used events & calls used by Terraria.
-* Runs plugins from the ServerPlugins folder.
-* Direct access to all methods inside Terraria Server itself.
+## Contribute
+
+* To get your patches merged, please adhere to the [Contributing](https://github.com/hastinbe/TerrariaAPI-Server/blob/bleed/CONTRIBUTING.md) guidelines.

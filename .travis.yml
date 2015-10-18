@@ -1,7 +1,17 @@
-language: c
-install:
-- sudo apt-get install mono-devel mono-gmcs nunit-console
-script:
-- xbuild ./TerrariaAPI-Server.csproj
-notifications:
-  irc: irc.rizon.net#tshock
+# Travis-CI Build for TerrariaAPI-Server
+# see travis-ci.org for details
+
+language: csharp
+mono: 4.0.0
+
+# http://docs.travis-ci.com/user/migrating-from-legacy
+sudo: false
+
+# Only watch the development branch and tagged release.
+branches:
+ only:
+   - /^release-.*$/
+   - /^playtest-.*$/
+   - /^prep-.*$/
+   - bleed
+
