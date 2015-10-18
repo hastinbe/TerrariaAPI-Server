@@ -48,6 +48,8 @@ namespace Terraria
 
 		public float SpamWater;
 
+		public float SpamItemFrame;
+
 		public float SpamProjectileMax = 100f;
 
 		public float SpamAddBlockMax = 100f;
@@ -55,6 +57,8 @@ namespace Terraria
 		public float SpamDeleteBlockMax = 500f;
 
 		public float SpamWaterMax = 50f;
+
+		public float SpamItemFrameMax = 20f;
 
 		public SendQueue sendQueue;
 
@@ -215,6 +219,7 @@ namespace Terraria
 			this.SpamAddBlock = 0f;
 			this.SpamDeleteBlock = 0f;
 			this.SpamWater = 0f;
+			this.SpamItemFrame = 0f;
 		}
 
 		public void SpamUpdate()
@@ -225,6 +230,7 @@ namespace Terraria
 				this.SpamDeleteBlock = 0f;
 				this.SpamAddBlock = 0f;
 				this.SpamWater = 0f;
+				this.SpamItemFrame = 0f;
 				return;
 			}
 			if (this.SpamProjectile > this.SpamProjectileMax)
@@ -242,6 +248,10 @@ namespace Terraria
 			if (this.SpamWater > this.SpamWaterMax)
 			{
 				NetMessage.BootPlayer(this.Id, "Cheating attempt detected: Liquid spam");
+			}
+			if (this.SpamItemFrame > this.SpamItemFrameMax)
+			{
+				NetMessage.BootPlayer(this.Id, "Cheating attempt detected: Item frame spam");
 			}
 			SpamProjectile -= 0.4f;
 			if (this.SpamProjectile < 0f)
@@ -262,6 +272,11 @@ namespace Terraria
 			if (this.SpamWater < 0f)
 			{
 				this.SpamWater = 0f;
+			}
+			SpamItemFrame -= 0.05f;
+			if (this.SpamItemFrame < 0f)
+			{
+				this.SpamItemFrame = 0f;
 			}
 		}
 	}

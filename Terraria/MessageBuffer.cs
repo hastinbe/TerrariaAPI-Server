@@ -2960,6 +2960,10 @@ namespace Terraria
 					int num214 = this.reader.ReadInt16();
 					int num215 = this.reader.ReadByte();
 					int num216 = this.reader.ReadInt16();
+
+					RemoteClient spamItemFrame = Netplay.Clients[this.whoAmI];
+					spamItemFrame.SpamItemFrame = spamItemFrame.SpamItemFrame + 1f;
+
 					TEItemFrame.TryPlacing(num212, num213, num214, num215, num216);
 					return;
 				}
