@@ -99,7 +99,7 @@ namespace Terraria
 				}
 				for (int i = start; i < start + length; i++)
 				{
-					byte num4 = this.readBuffer[i];
+					var b = this.readBuffer[i];
 				}
 			}
 			if (Main.netMode == 2 && num1 != 38 && Netplay.Clients[this.whoAmI].State == -1)
@@ -388,8 +388,6 @@ namespace Terraria
 						}
 						else
 						{
-							int num14 = itemArray[num13].type;
-							int num15 = itemArray[num13].stack;
 							itemArray[num13] = new Item();
 							itemArray[num13].netDefaults(num12);
 							itemArray[num13].stack = num10;

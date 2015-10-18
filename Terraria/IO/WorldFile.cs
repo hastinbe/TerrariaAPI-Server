@@ -2424,7 +2424,6 @@ namespace Terraria.IO
 							{
 								int num7 = 0;
 								byte num8 = (byte)num7;
-								byte num9 = (byte)num7;
 								byte num10 = fileIO.ReadByte();
 								if ((num10 & 1) == 1 && (fileIO.ReadByte() & 1) == 1)
 								{

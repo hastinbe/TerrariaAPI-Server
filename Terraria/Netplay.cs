@@ -194,27 +194,12 @@ namespace Terraria
 			if (num != -1)
 			{
 				Netplay.Clients[num].Socket = client;
-				Netplay.Clients[num].sendQueue.StartThread();
-
 				Console.WriteLine(client.GetRemoteAddress() + " is connecting to slot {0}...", num);
 			}
-			else
+			if (Netplay.FindNextOpenClientSlot() == -1)
 			{
-				using (var stream = new MemoryStream())
-				{ 
-					using (var writer = new BinaryWriter(stream))
-					{ 
-						writer.Write((short)0);
-						writer.Write((byte)2);
-						writer.Write("Server is full."); 
-						short position = (short)writer.BaseStream.Position; 
-						writer.BaseStream.Position = 0L;
-						writer.Write((short)position); 
-						byte[] data = stream.ToArray();
-						client.AsyncSend(data, 0, data.Length, delegate { }); 
-					}
-				}
-				client.Close();
+				Console.WriteLine("Netplay: No more clients can connect!");
+				Netplay.StopListening();
 			}
 		}
 		public static void OnConnectedToSocialServer(ISocket client)

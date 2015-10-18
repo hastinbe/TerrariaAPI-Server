@@ -37,7 +37,7 @@ namespace Terraria.Net
 			{
 				if (i != ignoreClient && Netplay.Clients[i].Socket.IsConnected() && Netplay.Clients[i] != null && Netplay.Clients[i].State == 10)
 				{
-					NetManager.SendData(i, Netplay.Clients[i].Socket, packet);
+					NetManager.SendData(Netplay.Clients[i].Socket, packet);
 				}
 			}
 		}
@@ -90,13 +90,16 @@ namespace Terraria.Net
 			((NetPacket)state).Recycle();
 		}
 
-		public static void SendData(int player, ISocket socket, NetPacket packet)
+		public static void SendData(ISocket socket, NetPacket packet)
 		{
-			Netplay.Clients[player].sendQueue.AllocAndSet(packet.Length, (BinaryWriter bw) =>
+			try
 			{
-				bw.Write(packet.Buffer.Data, 0, packet.Length);
-				return true;
-			});
+				socket.AsyncSend(packet.Buffer.Data, 0, packet.Length, new SocketSendCallback(NetManager.SendCallback), packet);
+			}
+			catch
+			{
+				Console.WriteLine("    Exception normal: Tried to send data to a client after losing connection");
+			}
 		}
 
 		private static void UpdateStats(int length)

@@ -10895,7 +10895,7 @@ namespace Terraria
 				this.rare = 5;
 				this.noMelee = true;
 				this.toolTip = "Summons a magical fairy";
-				this.value = (this.value = 250000);
+				this.value = 250000;
 				this.buffType = BuffID.FairyBlue;
 				return;
 			}
@@ -16422,7 +16422,7 @@ namespace Terraria
 				this.consumable = true;
 				this.ammo = 771;
 				this.knockBack = 6f;
-				this.value = (this.value = Item.buyPrice(0, 0, 5, 0));
+				this.value = Item.buyPrice(0, 0, 5, 0);
 				this.ranged = true;
 				this.toolTip = "Large blast radius. Will destroy tiles";
 				this.rare = 2;
@@ -45745,7 +45745,6 @@ namespace Terraria
 					else if (this.wet)
 					{
 						this.wet = false;
-						byte arg_CAC_0 = this.wetCount;
 					}
 					if (!this.wet)
 					{

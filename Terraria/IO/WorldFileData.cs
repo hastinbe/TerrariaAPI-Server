@@ -57,23 +57,22 @@ namespace Terraria.IO
 		{
 			this.WorldSizeX = x;
 			this.WorldSizeY = y;
-			int num = x;
-			if (num == 4200)
+
+			switch (x)
 			{
-				this._worldSizeName = "Small";
-				return;
+				case 4200:
+					this._worldSizeName = "Small";
+					break;
+				case 6400: 
+					this._worldSizeName = "Medium"; 
+					break;
+				case 8400: 
+					this._worldSizeName = "Large"; 
+					break;
+				default: 
+					this._worldSizeName = "Unknown"; 
+					break;
 			}
-			if (num == 6400)
-			{
-				this._worldSizeName = "Medium";
-				return;
-			}
-			if (num == 8400)
-			{
-				this._worldSizeName = "Large";
-				return;
-			}
-			this._worldSizeName = "Unknown";
 		}
 	}
 }

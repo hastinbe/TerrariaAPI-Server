@@ -542,7 +542,6 @@ namespace Terraria
 
 		public static void HitTrackSwitch(Vector2 Position, int Width, int Height)
 		{
-			Vector2 vector2 = new Vector2((float)(Width / 2) - 25f, (float)(Height / 2));
 			Vector2 position = Position + new Vector2((float)(Width / 2) - 25f, (float)(Height / 2));
 			Vector2 vector21 = position + Minecart._trackMagnetOffset;
 			int x = (int)(vector21.X / 16f);

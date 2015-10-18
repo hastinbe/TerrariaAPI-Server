@@ -10071,7 +10071,6 @@ namespace Terraria
 				}
 				Main.recipe[m].createItem.checkMat();
 			}
-			int num5 = Recipe.numRecipes;
 		}
 
 		public bool useFragment(int invType, int reqType)
